@@ -10,7 +10,7 @@ class PostForm extends Component {
       url: "",
       shorturl: ""
     };
-
+    this.baseState = this.state;
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -26,7 +26,8 @@ class PostForm extends Component {
       title: this.state.url,
       body: this.state.shorturl
     };
-    this.setState((this.state = { url: "", shorturl: "" })); // reset the form field
+    //this.setState((this.state = { url: "", shorturl: "" })); // reset the form field
+    this.setState(this.baseState);
     this.props.createPost(post);
   }
 
